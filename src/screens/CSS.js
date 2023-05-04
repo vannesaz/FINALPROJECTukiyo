@@ -4,7 +4,7 @@ import { BackGround2 } from '../assets';
 
 const CSS = () => {
   return (
-    <View>
+    <View style = {{ backgroundColor : "#CED9DF"}}>
       <View
         style={{
           backgroundColor: '#1F2F22',
@@ -20,17 +20,17 @@ const CSS = () => {
         </Text>
         <View style = {{flexDirection : 'row', justifyContent : 'space-between', marginTop : 25}}>
             <TouchableOpacity style = {{width : 100, height : 100, backgroundColor : "#1F2F22", borderRadius : 30, justifyContent : 'center', alignItems : 'center'}}>
-                <Text style = {{}}>
+                <Text style = {{color : 'white'}}>
                     Town
                 </Text>
             </TouchableOpacity>
-            <TouchableOpacity style = {{width : 100, height : 100, backgroundColor : "#1F2F22", borderRadius : 30}}>
-                <Text>
+            <TouchableOpacity style = {{width : 100, height : 100, backgroundColor : "#1F2F22", borderRadius : 30, justifyContent : 'center', alignItems : 'center'}}>
+                <Text style = {{color : 'white'}}>
                     Town
                 </Text>
             </TouchableOpacity>
-            <TouchableOpacity style = {{width : 100, height : 100, backgroundColor : "#1F2F22", borderRadius : 30}}>
-                <Text>
+            <TouchableOpacity style = {{width : 100, height : 100, backgroundColor : "#1F2F22", borderRadius : 30, justifyContent : 'center', alignItems : 'center'}}>
+                <Text style = {{color : 'white'}}>
                     Town
                 </Text>
             </TouchableOpacity>
@@ -38,17 +38,17 @@ const CSS = () => {
         <Image source={BackGround2} style = {{marginVertical : 18, borderRadius : 35, alignSelf : 'center'}}/>
         <View style = {{flexDirection : 'row', justifyContent : 'space-between'}}>
             <TouchableOpacity style = {{width : 100, height : 100, backgroundColor : "#1F2F22", borderRadius : 30, justifyContent : 'center', alignItems : 'center'}}>
-                <Text style = {{}}>
+                <Text style = {{color : 'white'}}>
                     Town
                 </Text>
             </TouchableOpacity>
-            <TouchableOpacity style = {{width : 100, height : 100, backgroundColor : "#1F2F22", borderRadius : 30}}>
-                <Text>
+            <TouchableOpacity style = {{width : 100, height : 100, backgroundColor : "#1F2F22", borderRadius : 30, justifyContent : 'center', alignItems : 'center'}}>
+                <Text style = {{color : 'white'}}>
                     Town
                 </Text>
             </TouchableOpacity>
-            <TouchableOpacity style = {{width : 100, height : 100, backgroundColor : "#1F2F22", borderRadius : 30}}>
-                <Text>
+            <TouchableOpacity style = {{width : 100, height : 100, backgroundColor : "#1F2F22", borderRadius : 30, justifyContent : 'center', alignItems : 'center'}}>
+                <Text style = {{color : 'white'}}>
                     Town
                 </Text>
             </TouchableOpacity>

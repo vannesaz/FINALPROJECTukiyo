@@ -4,7 +4,7 @@ import { BackGround } from '../assets'
 
 const Home = ({navigation}) => {
   return (
-    <ScrollView style = {{backgroundColor : "white"}}>
+    <ScrollView style = {{ backgroundColor : "#CED9DF"}}>
       <View style = {{backgroundColor : "#1F2F22", paddingHorizontal : 28, paddingVertical : 18, borderBottomLeftRadius : 25, borderBottomRightRadius : 25 }}>
         <Text style = {{color : "white", fontSize : 20}}>
             Hi. ukiyo here.
