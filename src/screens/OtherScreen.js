@@ -2,8 +2,9 @@ import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import { BackGround2 } from '../assets';
 import { Eis, Pohon, Airair,Angin, Apiapi, Headset, Payung } from '../assets/icons';
+import { NavigationContainer } from '@react-navigation/native';
 
-const OtherScreen = () => {
+const OtherScreen = ({navigation}) => {
   return (
     <View style = {{ backgroundColor : "#CED9DF", flex: 1}}>
       <View
@@ -24,13 +25,13 @@ const OtherScreen = () => {
             <Text style={{color: 'white', fontSize: 20, textAlign: 'center', fontFamily : "OriginalSurfer-Regular"}}>nature sounds</Text>
           </TouchableOpacity>
           <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', flex: 1}}>
-          <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}}>
+          <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}} onPress = {()=>navigation.navigate("Play") }>
               <Eis/>
             </TouchableOpacity>
-            <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}}>
+            <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}} onPress = {()=>navigation.navigate("Play") }>
               <Pohon/>
             </TouchableOpacity>
-            <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}}>
+            <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}} onPress = {()=>navigation.navigate("Play") }>
               <Angin/>
             </TouchableOpacity>
           </View>
@@ -40,13 +41,13 @@ const OtherScreen = () => {
             <Text style={{color: 'white', fontSize: 20, textAlign: 'center', fontFamily : "OriginalSurfer-Regular"}}>binaural beats</Text>
           </TouchableOpacity>
           <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', flex: 1}}>
-            <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}}>
+            <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}} onPress = {()=>navigation.navigate("Play") }>
               <Headset/>
             </TouchableOpacity>
-            <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}}>
+            <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}} onPress = {()=>navigation.navigate("Play") }>
               <Headset/>
             </TouchableOpacity>
-            <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}}>
+            <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}} onPress = {()=>navigation.navigate("Play") }>
               <Headset/>
             </TouchableOpacity>
           </View>
@@ -56,13 +57,13 @@ const OtherScreen = () => {
             <Text style={{color: 'white', fontSize: 20, textAlign: 'center', fontFamily : "OriginalSurfer-Regular"}}>ASMR</Text>
           </TouchableOpacity>
           <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', flex: 1}}>
-            <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}}>
+            <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}} onPress = {()=>navigation.navigate("Play") }>
               <Airair/>
             </TouchableOpacity>
-            <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}}>
+            <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}} onPress = {()=>navigation.navigate("Play") }>
               <Payung/>
             </TouchableOpacity>
-            <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center'}}>
+            <TouchableOpacity style={{borderRadius: 10, width: 50, height: 50,backgroundColor: 'white', justifyContent : 'center', alignItems : 'center' }} onPress = {()=>navigation.navigate("Play") } >
               <Apiapi/>
             </TouchableOpacity>
           </View>

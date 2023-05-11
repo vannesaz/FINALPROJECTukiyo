@@ -14,11 +14,11 @@ const App = () => {
   return (
     <NavigationContainer>
         <Stack.Navigator>
-        <Stack.Screen name='Play' component={Play} options = {{headerShown : false}}/>
           <Stack.Screen name='Splash' component={Splash} options = {{headerShown : false}}/>
           <Stack.Screen name='OtherScreen' component={OtherScreen} options = {{headerShown : false}}/>
           <Stack.Screen name='Home' component={Home} options = {{headerShown : false}}/>
           <Stack.Screen name='CSS' component={CSS} options = {{headerShown : false}}/>
+          <Stack.Screen name='Play' component={Play} options = {{headerShown : false}}/>
         </Stack.Navigator>
     </NavigationContainer>
   
