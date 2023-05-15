@@ -100,7 +100,7 @@ const Play = () => {
 
             {Play ? <Pause /> : <Playbutton />}
           </TouchableOpacity>
-          <TouchableOpacity onPress={playNextSong}
+          <TouchableOpacity onPress={playNextSong}>
             <Next />
           </TouchableOpacity>
         </View>
