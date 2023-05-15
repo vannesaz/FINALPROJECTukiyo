@@ -7,14 +7,36 @@ import TrackPlayer, {State} from 'react-native-track-player';
 const Play = () => {
   const [Play, setPlay] = useState(false);
 
-  const track = {
-    url: require('../assets/Music/1.mp3'),
-  };
   const setupPlayer = async () => {
     await TrackPlayer.setupPlayer();
-
+    
+      const track = {
+        id : '1',
+        url: require('../assets/Music/1.mp3'),
+      };
     await TrackPlayer.add(track);
+
+      const track2 = {
+        id : '2',
+        url: require('../assets/Music/Cafe.mp3'),
+      };
+    await TrackPlayer.add(track2);
+
+      const track3 = {
+        id : '3',
+        url: require('../assets/Music/Castle.mp3'),
+      };
+    await TrackPlayer.add(track3);
   };
+  
+  const playNextSong = async () => {
+  await TrackPlayer.skip('next');
+};
+  
+  const playPreviousSong = async () => {
+  await TrackPlayer.skip('previous');
+};
+
   useEffect(() => {
     setupPlayer();
   }, []);
@@ -63,7 +85,7 @@ const Play = () => {
             width: '70%',
             marginTop: 50,
           }}>
-          <TouchableOpacity>
+            <TouchableOpacity onPress={playPreviousSong}>
             <Previous />
           </TouchableOpacity>
           <TouchableOpacity
@@ -78,7 +100,7 @@ const Play = () => {
 
             {Play ? <Pause /> : <Playbutton />}
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={playNextSong}>
             <Next />
           </TouchableOpacity>
         </View>
