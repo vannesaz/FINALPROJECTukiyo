@@ -21,7 +21,7 @@ const CSS = ({navigation}) => {
         <View style = {{flexDirection : 'row', justifyContent : 'space-between', marginTop : 25}}>
             <TouchableOpacity style = {{width : 100, height : 100, backgroundColor : "#1F2F22", borderRadius : 30, justifyContent : 'center', alignItems : 'center'}} onPress = { () => navigation.navigate("OtherScreen") }>
                 <Text style = {{color : 'white', fontFamily : "OriginalSurfer-Regular"}}>
-                    town
+                    cafe
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity style = {{width : 100, height : 100, backgroundColor : "#1F2F22", borderRadius : 30, justifyContent : 'center', alignItems : 'center'}} onPress = { () => navigation.navigate("OtherScreen") }>
