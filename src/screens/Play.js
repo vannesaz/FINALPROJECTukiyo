@@ -3,6 +3,9 @@ import React, {useEffect, useState} from 'react';
 import {FotoPlay} from '../assets';
 import {Playbutton, Previous, Next, Pause} from '../assets/icons';
 import TrackPlayer, {State} from 'react-native-track-player';
+import Slider from 'react-native-slider';
+
+//npm install react-native-slider
 
 const Play = () => {
   const [Play, setPlay] = useState(false);
@@ -37,9 +40,22 @@ const Play = () => {
   await TrackPlayer.skip('previous');
 };
 
+  const [progress, setProgress] = useState(0);
+
   useEffect(() => {
-    setupPlayer();
-  }, []);
+  setupPlayer();
+
+  const listener = TrackPlayer.addEventListener('playback-queue-position', async (position) => {
+    const duration = await TrackPlayer.getDuration();
+    const currentPosition = position.position / duration;
+    setProgress(currentPosition);
+  });
+
+  return () => {
+    listener.remove();
+  };
+}, []);
+
   
   return (
     <View style={{backgroundColor: '#CED9DF', flex: 1}}>
@@ -68,15 +84,21 @@ const Play = () => {
 
         </View>
 
-        <View
-          style={{
-            borderRadius: 25,
-            overflow: 'hidden',
-            height: '70%',
-            marginTop: 35,
-          }}>
-          <Image source={FotoPlay} style={{flex: 1}} />
+        <View style={{ borderRadius: 25, overflow: 'hidden', height: '70%', marginTop: 35 }}>
+          <Image source={FotoPlay} style={{ flex: 1 }} />
         </View>
+
+        <Slider
+          style={{ width: '90%', marginTop: 20 }}
+          value={progress}
+          onValueChange={async (value) => {
+            const duration = await TrackPlayer.getDuration();
+            const position = value * duration;
+            TrackPlayer.seekTo(position);
+            setProgress(value);
+          }}
+        />
+
 
         <View
           style={{
