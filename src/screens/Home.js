@@ -33,13 +33,13 @@ const Home = ({navigation}) => {
         <TouchableOpacity
           style={{
             alignSelf: 'center',
-            backgroundColor: '#19A7CE',
+            backgroundColor: '#1F2F22',
             paddingHorizontal: 5,
             marginTop: 10,
             borderRadius: 5,
           }}
           onPress={() => navigation.navigate('CSS')}>
-          <Text style={{color: 'white'}}>Start</Text>
+          <Text style={{color: 'white', fontFamily : "OriginalSurfer-Regular"}}>Start</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
