@@ -3,9 +3,8 @@ import React, {useEffect, useState} from 'react';
 import {FotoPlay} from '../assets';
 import {Playbutton, Previous, Next, Pause} from '../assets/icons';
 import TrackPlayer, {State} from 'react-native-track-player';
-import Slider from 'react-native-slider';
+import Slider from '@react-native-community/slider'
 
-//npm install react-native-slider
 
 const Play = () => {
   const [Play, setPlay] = useState(false);
