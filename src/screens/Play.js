@@ -3,37 +3,43 @@ import React, {useEffect, useState} from 'react';
 import {FotoPlay} from '../assets';
 import {Playbutton, Previous, Next, Pause} from '../assets/icons';
 import TrackPlayer, {State} from 'react-native-track-player';
-import Slider from 'react-native-slider';
-
-//npm install react-native-slider
 
 const Play = () => {
   const [Play, setPlay] = useState(false);
-  
-  const [progress, setProgress] = useState(0);
 
-  const track = {
-    url: require('../assets/Music/1.mp3'),
-  };
   const setupPlayer = async () => {
     await TrackPlayer.setupPlayer();
-
+    
+      const track = {
+        id : '1',
+        url: require('../assets/Music/1.mp3'),
+      };
     await TrackPlayer.add(track);
+
+      const track2 = {
+        id : '2',
+        url: require('../assets/Music/Cafe.mp3'),
+      };
+    await TrackPlayer.add(track2);
+
+      const track3 = {
+        id : '3',
+        url: require('../assets/Music/Castle.mp3'),
+      };
+    await TrackPlayer.add(track3);
   };
+  
+  const playNextSong = async () => {
+  await TrackPlayer.skip('next');
+};
+  
+  const playPreviousSong = async () => {
+  await TrackPlayer.skip('previous');
+};
+
   useEffect(() => {
-  setupPlayer();
-
-  const listener = TrackPlayer.addEventListener('playback-queue-position', async (position) => {
-    const duration = await TrackPlayer.getDuration();
-    const currentPosition = position.position / duration;
-    setProgress(currentPosition);
-  });
-
-  return () => {
-    listener.remove();
-  };
-}, []);
-
+    setupPlayer();
+  }, []);
   
   return (
     <View style={{backgroundColor: '#CED9DF', flex: 1}}>
@@ -62,20 +68,15 @@ const Play = () => {
 
         </View>
 
-        <View style={{ borderRadius: 25, overflow: 'hidden', height: '70%', marginTop: 35 }}>
-          <Image source={FotoPlay} style={{ flex: 1 }} />
+        <View
+          style={{
+            borderRadius: 25,
+            overflow: 'hidden',
+            height: '70%',
+            marginTop: 35,
+          }}>
+          <Image source={FotoPlay} style={{flex: 1}} />
         </View>
-
-        <Slider
-         style={{ width: '90%', marginTop: 20 }}
-         value={progress}
-         onValueChange={async (value) => {
-          const duration = await TrackPlayer.getDuration();
-          const position = value * duration;
-          TrackPlayer.seekTo(position);
-          setProgress(value);
-        }}
-      />
 
         <View
           style={{
@@ -84,7 +85,7 @@ const Play = () => {
             width: '70%',
             marginTop: 50,
           }}>
-          <TouchableOpacity>
+            <TouchableOpacity onPress={playPreviousSong}>
             <Previous />
           </TouchableOpacity>
           <TouchableOpacity
@@ -99,7 +100,7 @@ const Play = () => {
 
             {Play ? <Pause /> : <Playbutton />}
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={playNextSong}
             <Next />
           </TouchableOpacity>
         </View>
