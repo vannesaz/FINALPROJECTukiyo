@@ -18,6 +18,7 @@ const Play = () => {
   useEffect(() => {
     setupPlayer();
   }, []);
+  
   return (
     <View style={{backgroundColor: '#CED9DF', flex: 1}}>
       <View
@@ -42,6 +43,7 @@ const Play = () => {
           <Text style={{fontFamily: 'OriginalSurfer-Regular', color: 'white'}}>
             Music Title - Composer
           </Text>
+
         </View>
 
         <View
@@ -53,6 +55,7 @@ const Play = () => {
           }}>
           <Image source={FotoPlay} style={{flex: 1}} />
         </View>
+
         <View
           style={{
             flexDirection: 'row',
@@ -64,6 +67,7 @@ const Play = () => {
             <Previous />
           </TouchableOpacity>
           <TouchableOpacity
+
             onPress={async () => {
               const state = await TrackPlayer.getState();
               Play === true ? setPlay(false) : setPlay(true);
@@ -71,6 +75,7 @@ const Play = () => {
                 ? TrackPlayer.pause()
                 : TrackPlayer.play();
             }}>
+
             {Play ? <Pause /> : <Playbutton />}
           </TouchableOpacity>
           <TouchableOpacity>
