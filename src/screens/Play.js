@@ -1,16 +1,24 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {FotoPlay} from '../assets';
 import {Playbutton, Previous, Next, Pause} from '../assets/icons';
-import TrackPlayer from 'react-native-track-player';
+import TrackPlayer, {State} from 'react-native-track-player';
 
 const Play = () => {
   const [Play, setPlay] = useState(false);
+
+  const track = {
+    url: require('../assets/Music/1.mp3'),
+  };
   const setupPlayer = async () => {
     await TrackPlayer.setupPlayer();
 
-    await TrackPlayer.add();
+    await TrackPlayer.add(track);
   };
+  useEffect(() => {
+    setupPlayer();
+  }, []);
+  
   return (
     <View style={{backgroundColor: '#CED9DF', flex: 1}}>
       <View
@@ -35,6 +43,7 @@ const Play = () => {
           <Text style={{fontFamily: 'OriginalSurfer-Regular', color: 'white'}}>
             Music Title - Composer
           </Text>
+
         </View>
 
         <View
@@ -46,6 +55,7 @@ const Play = () => {
           }}>
           <Image source={FotoPlay} style={{flex: 1}} />
         </View>
+
         <View
           style={{
             flexDirection: 'row',
@@ -57,7 +67,15 @@ const Play = () => {
             <Previous />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => (Play === true ? setPlay(false) : setPlay(true))}>
+
+            onPress={async () => {
+              const state = await TrackPlayer.getState();
+              Play === true ? setPlay(false) : setPlay(true);
+              state === State.Playing
+                ? TrackPlayer.pause()
+                : TrackPlayer.play();
+            }}>
+
             {Play ? <Pause /> : <Playbutton />}
           </TouchableOpacity>
           <TouchableOpacity>
